@@ -1,5 +1,9 @@
-function Backdrop(props) {
-    return ( <div className='backdrop' onClick={props.onCancel} /> );
-}
+import React from 'react';
 
-export default Backdrop;
+export const Backdrop = (props) => {
+  // returns JSX.
+  // On onClick attribute calls - parent component attribute via props.
+  return <div className='backdrop' onClick={props.onCancel}></div>;
+};
+
+// export default Backdrop;

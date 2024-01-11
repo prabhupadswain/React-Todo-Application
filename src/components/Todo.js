@@ -1,29 +1,40 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+
 import Modal from './Modal';
-import Backdrop from './Backdrop';
+import { Backdrop } from './Backdrop';
 
-function Todo(props) {
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+const Todo = (props) => {
+  // React Hooks - Using useState()
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-    // Delete Button
-    function deleteHandler() {
-        setModalIsOpen(true);
-    }
+  // Delete button handler to change state of application.
+  // Open modal & backdrop component
+  // Modify state of application via useState().
+  function deleteHandler() {
+    setModalIsOpen(true);
+  }
 
-    //Modal Close
-    function closeModalHandler() {
-        setModalIsOpen(false);
-    }
-    
-    return (
-        <div className='card'>
-        <h2>{props.text}</h2>
-        <div className='actions'>
-          <button className='btn' onClick={deleteHandler}>Delete</button>
-        </div> 
-        { modalIsOpen && <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler}/> }
-        { modalIsOpen && <Backdrop onCancel={closeModalHandler}/> } 
+  // Modify state of application.
+  // Close modal & backdrop component.
+  // Using react hook useState().
+  function closeModalHandler() {
+    setModalIsOpen(false);
+  }
+
+  return (
+    <div className='card'>
+      <h2>{props.text}</h2>
+      <div className='actions'>
+        <button className='btn' onClick={deleteHandler}>
+          Delete
+        </button>
       </div>
-    );
-}
-export default Todo
+      {modalIsOpen && (
+        <Modal onConfirm={closeModalHandler} onCancel={closeModalHandler} />
+      )}
+      {modalIsOpen && <Backdrop onCancel={closeModalHandler} />}
+    </div>
+  );
+};
+
+export default Todo;
