@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Testing = () => {
+const TestingEvents = () => {
   function demo1Handler() {
     console.log('Superman-Demo 1');
   }
@@ -49,4 +49,4 @@ const Testing = () => {
   );
 };
 
-export default Testing;
+export default TestingEvents;
